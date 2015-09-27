@@ -80,17 +80,16 @@ int stack_size(struct stack *s){
 // behöver veta hur strukturen ser ut på insidan. En iterator
 // erbjuder i allmänhet två operationer:
 //
-//  * hasNext returnerar true (eller 1) om det finns fler element
-//    att peka ut, annars false (eller 0). I vårt fall kollar vi
-//    helt enkelt om stacknoden vi för närvarande pekar ut är
-//    NULL.
+//  * iterator_more returnerar true om det finns fler element att
+//    peka ut, annars false. I vårt fall kollar vi helt enkelt om
+//    stacknoden vi för närvarande pekar ut är NULL.
 //
-//  * getNext returnerar elementet för den nod som vi för
+//  * iterator_next returnerar elementet för den nod som vi för
 //    närvarande pekar ut OCH flyttar iteratorn till nästa nod.
 //    Notera att vi inte returnerar stackens noder, utan elementen
 //    som varje nod pekar ut (annars skulle abstraktionen läcka!).
-//    Den typiska användningen är att man bara anropar getNext om
-//    hasNext returnerar true.
+//    Den typiska användningen är att man bara anropar
+//    iterator_next om iterator_more returnerar true.
 //
 // Se koden för showStack i calc.c för ett exempel på hur en
 // iterator kan användas.
